@@ -1,11 +1,59 @@
+<!-- templates/index.html -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Testing</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Haircut Booking</title>
+
+    <!-- Link to your CSS -->
+    <link rel="stylesheet" href="../styles/style.css" />
+
+    <!-- Simple comments help teammates understand -->
+    <!-- This is the main UI for booking a haircut -->
+  </head>
+
+  <body>
+    <header>
+      <h1>Book Your Next Haircut</h1>
+      <p>Choose a barber and schedule your appointment easily.</p>
+    </header>
+
+    <!-- Main container -->
+    <section class="providers">
+      <h2>Available Barbers</h2>
+      <div class="card">
+        <h3>Fade Factory</h3>
+        <p>123 Main Street</p>
+        <button onclick="selectProvider('Fade Factory')">Book Now</button>
+      </div>
+
+      <div class="card">
+        <h3>Clip & Clean</h3>
+        <p>456 Oak Avenue</p>
+        <button onclick="selectProvider('Clip & Clean')">Book Now</button>
+      </div>
+    </section>
+
+    <!-- Booking form section -->
+    <section id="booking" class="hidden">
+      <h2 id="selected-barber"></h2>
+      <form>
+        <label>Date:
+          <input type="date" id="date" required />
+        </label>
+        <label>Time:
+          <input type="time" id="time" required />
+        </label>
+        <button type="submit">Confirm Booking</button>
+      </form>
+    </section>
+
+    <footer>
+      <p>© 2025 Haircut Booker</p>
+    </footer>
+
+    <!-- Connect your JS -->
+    <script src="../scripts/index.js"></script>
+  </body>
 </html>
