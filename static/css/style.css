@@ -1,0 +1,327 @@
+/* ================================
+   BASE PAGE STYLES
+==================================*/
+
+body {
+  font-family: system-ui, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fafafa;
+  color: #333;
+}
+
+/* Header (homepage hero) */
+header {
+  text-align: center;
+  padding: 2rem;
+  background-color: #2c3e50;
+  color: white;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* Hidden sections */
+.hidden {
+  display: none;
+}
+
+
+/* ================================
+   NAVIGATION BAR
+==================================*/
+
+.nav {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.tab {
+  padding: 0.5rem 0.9rem;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  border: 1px solid transparent;
+}
+
+.tab:hover {
+  background: #f1f5f9;
+}
+
+.tab.active {
+  background: #2c3e50;
+  color: white;
+  border-color: #2c3e50;
+}
+
+
+/* ================================
+   SECTION & LAYOUT STYLES
+==================================*/
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.section {
+  padding: 3rem 1.5rem;
+}
+
+.section-light {
+  background: #f4f4f6;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+
+.section-subtitle {
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+
+/* ================================
+   CARD STYLES
+==================================*/
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.card-text {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.card-meta {
+  font-size: 0.85rem;
+  color: #777;
+  margin-top: 0.5rem;
+}
+
+
+/* ================================
+   BUTTONS
+==================================*/
+
+.btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s ease;
+  border: none;
+}
+
+.btn-full {
+  width: 100%;
+}
+
+.btn-primary {
+  background: #2c3e50;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #34495e;
+}
+
+.btn-outline {
+  background: white;
+  border: 1px solid #2c3e50;
+  color: #2c3e50;
+}
+
+.btn-outline:hover {
+  background: #2c3e50;
+  color: white;
+}
+
+
+/* ================================
+   BOOKING FORM
+==================================*/
+
+.form {
+  display: grid;
+  gap: 1rem;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  max-width: 450px;
+  margin: 0 auto;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.form label {
+  text-align: left;
+  font-weight: 500;
+}
+
+.form input,
+.form select {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  width: 100%;
+}
+
+
+/* ================================
+   HOW IT WORKS (steps)
+==================================*/
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.step {
+  background: white;
+  padding: 1.3rem;
+  border-radius: 10px;
+  border: 1px solid #e7e7e7;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.step-number {
+  background: #2c3e50;
+  color: white;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.6rem;
+}
+
+
+/* ================================
+   FEATURED BARBERS
+==================================*/
+
+.barber-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.barber-card {
+  background: white;
+  padding: 1.2rem;
+  border-radius: 10px;
+  border: 1px solid #e7e7e7;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.avatar-circle {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #2c3e50;
+  color: white;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.8rem;
+}
+
+.barber-meta {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.barber-tags {
+  font-size: 0.85rem;
+  margin: 0.5rem 0 1rem;
+  color: #444;
+}
+
+
+/* ================================
+   TESTIMONIALS
+==================================*/
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.testimonial {
+  background: white;
+  padding: 1.3rem;
+  border-radius: 12px;
+  border: 1px solid #e7e7e7;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.testimonial-text {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 0.8rem;
+}
+
+.testimonial-name {
+  font-size: 0.85rem;
+  color: #777;
+}
+
+
+/* ================================
+   POLICIES LIST
+==================================*/
+
+.bullets {
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+
+/* ================================
+   RESPONSIVE TWEAKS
+==================================*/
+
+@media (max-width: 600px) {
+  .section-title {
+    font-size: 1.6rem;
+  }
+  .nav {
+    flex-wrap: wrap;
+  }
+}

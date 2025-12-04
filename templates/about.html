@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% set active = 'about' %}
+{% block title %}About — Haircut Booker{% endblock %}
+
+{% block content %}
+
+<h1 class="section-title">About Our Barbers</h1>
+<p class="section-subtitle">Learn more about the professionals behind your fresh cuts.</p>
+
+<section class="section section-light">
+  <div class="card-grid">
+
+    <div class="card">
+      <h3>Fade Factory</h3>
+      <p>8+ years of experience specializing in skin fades, tapers, and line-ups.</p>
+      <p class="card-meta">123 Main Street</p>
+    </div>
+
+    <div class="card">
+      <h3>Clip & Clean</h3>
+      <p>Fast, clean scissor work with attention to detail. Great for classic cuts.</p>
+      <p class="card-meta">456 Oak Avenue</p>
+    </div>
+
+  </div>
+</section>
+
+{% endblock %}

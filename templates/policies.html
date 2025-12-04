@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% set active = 'policies' %}
+{% block title %}Policies — Haircut Booker{% endblock %}
+
+{% block content %}
+
+<h1 class="section-title">Shop Policies</h1>
+<p class="section-subtitle">Please read before booking your appointment.</p>
+
+<section class="section-light policy-list">
+  <ul class="bullets">
+
+    <li><strong>Late Policy:</strong> 10-minute grace period for late arrivals.</li>
+    <li><strong>Cancellations:</strong> Cancel at least 3 hours before your appointment.</li>
+    <li><strong>Payments:</strong> All payments are made in person (demo app).</li>
+    <li><strong>No-Show:</strong> Repeated no-shows may result in denied bookings.</li>
+    <li><strong>Cleanliness:</strong> Please arrive with clean hair if possible.</li>
+
+  </ul>
+</section>
+
+{% endblock %}

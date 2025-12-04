@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}Haircut Booker{% endblock %}</title>
+
+  <!-- Link to CSS through Flask -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="nav">
+    <a class="tab {% if active=='home' %}active{% endif %}" href="{{ url_for('index') }}">Home</a>
+    <a class="tab {% if active=='booking' %}active{% endif %}" href="{{ url_for('booking') }}">Booking</a>
+    <a class="tab {% if active=='about' %}active{% endif %}" href="{{ url_for('about') }}">About</a>
+    <a class="tab {% if active=='policies' %}active{% endif %}" href="{{ url_for('policies') }}">Policies</a>
+  </nav>
+
+  <!-- Page Content Wrapper -->
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- JavaScript -->
+  <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+
+</body>
+</html>
