@@ -11,6 +11,7 @@ key = os.environ.get("SUPABASE_KEY")
 
 #create DB client
 supabase = create_client(url, key)
+
 #simple response query to test connection to supabase!
 response = (
     supabase.table("test_data")
