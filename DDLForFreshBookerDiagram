@@ -1,0 +1,111 @@
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+CREATE TABLE Client (
+    cID uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
+    cFName text NOT NULL,
+    cLName text NOT NULL,
+    cPhone text
+);
+
+CREATE TABLE Business (
+    bID uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
+    bBrand text NOT NULL,
+    bStreet text NOT NULL,
+    bCity text NOT NULL,
+    bZipcode text NOT NULL,
+    bState text NOT NULL
+);
+
+CREATE TABLE ServiceProvider (
+    spID uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
+    spName text NOT NULL,
+    spPhoneNum text,
+    bID uuid NOT NULL,
+    FOREIGN KEY (bID)
+        REFERENCES Business(bID)
+        ON DELETE CASCADE
+);
+
+CREATE TABLE Services (
+    sID uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
+    type text NOT NULL,
+    duration integer,            -- in minutes
+    price numeric(10,2) NOT NULL
+);
+
+
+CREATE TABLE Offers (
+    bID uuid NOT NULL,
+    sID uuid NOT NULL,
+    PRIMARY KEY (bID, sID),
+    FOREIGN KEY (bID)
+        REFERENCES Business(bID)
+        ON DELETE CASCADE,
+    FOREIGN KEY (sID)
+        REFERENCES Services(sID)
+        ON DELETE CASCADE
+);
+
+
+CREATE TABLE Appointment (
+    aID uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
+    cID uuid NOT NULL,
+    spID uuid NOT NULL,
+    sID uuid NOT NULL,
+    date date NOT NULL,
+    timeSlot text NOT NULL,
+    paymentMethod text,
+    
+    FOREIGN KEY (cID)
+        REFERENCES Client(cID)
+        ON DELETE CASCADE,
+    FOREIGN KEY (spID)
+        REFERENCES ServiceProvider(spID)
+        ON DELETE CASCADE,
+    FOREIGN KEY (sID)
+        REFERENCES Services(sID)
+        ON DELETE CASCADE
+);
+
+
+CREATE TABLE Reviews (
+    reviewID uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
+    cID uuid NOT NULL,
+    bID uuid NOT NULL,
+    rating integer CHECK (rating BETWEEN 1 AND 5),
+    description text,
+    date date NOT NULL DEFAULT CURRENT_DATE,
+
+    FOREIGN KEY (cID)
+        REFERENCES Client(cID)
+        ON DELETE CASCADE,
+    FOREIGN KEY (bID)
+        REFERENCES Business(bID)
+        ON DELETE CASCADE
+);
+
+
+CREATE TABLE Portfolio (
+    pID uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
+    images text,          -- JSON array of URLs
+    date date NOT NULL DEFAULT CURRENT_DATE,
+    spID uuid NOT NULL,
+
+    FOREIGN KEY (spID)
+        REFERENCES ServiceProvider(spID)
+        ON DELETE CASCADE
+);
+
+
+CREATE TABLE Manages (
+    spID uuid NOT NULL,
+    bID uuid NOT NULL,
+    PRIMARY KEY (spID, bID),
+
+    FOREIGN KEY (spID)
+        REFERENCES ServiceProvider(spID)
+        ON DELETE CASCADE,
+    FOREIGN KEY (bID)
+        REFERENCES Business(bID)
+        ON DELETE CASCADE
+);
