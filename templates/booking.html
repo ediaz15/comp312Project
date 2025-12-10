@@ -24,6 +24,13 @@
     <!-- Barber -->
     <label>Choose barber*:
       <select name="service_provider" required>
+    
+        <!-- Placeholder — prevents blank blue selection -->
+        <option value="" disabled 
+          {% if not selected_sp_id %} selected {% endif %}>
+          -- Select a Barber --
+        </option>
+
         {% for sp in service_providers %}
         <option value="{{ sp.spID }}"
           {% if selected_sp_id == sp.spID|string %} selected {% endif %}>
@@ -36,11 +43,14 @@
     <!-- Service -->
     <label>Service*:
       <select name="service" required>
-        <option value="">-- Select a service --</option>
-        {% for svc in services %}
+
+        <!-- Placeholder option -->
+        <option value="" disabled selected>-- Select a service --</option>
+
+          {% for svc in services %}
           <option value="{{ svc.sID }}">
             {{ svc.type }} — {{ svc.duration }} min • ${{ "%.2f"|format(svc.price) }}
-          </option>
+        </option>
         {% endfor %}
       </select>
     </label>
