@@ -5,30 +5,64 @@
 {% block content %}
 
 <h1 class="section-title">Book an Appointment</h1>
-<p class="section-subtitle">Select a barber, pick a date, and choose a time.</p>
+<p class="section-subtitle">Select a barber, choose a service, pick a date & time.</p>
 
 <section class="section-light form-container">
 
-  <!-- MATCHES index.js -->
-  <form id="booking-form" class="form">
+  <form method="POST" class="form">
 
-    <!-- Barber Dropdown (index.js will auto-select if clicked from Home page) -->
-    <label>Choose Barber:
-      <select id="provider" required>
-        <option value="">-- Select --</option>
-        <option value="Fade Factory">Fade Factory</option>
-        <option value="Clip & Clean">Clip & Clean</option>
+    <!-- Name -->
+    <label>Your name*:
+      <input type="text" name="name" required />
+    </label>
+
+    <!-- Phone -->
+    <label>Phone number:
+      <input type="text" name="phone" />
+    </label>
+
+    <!-- Barber -->
+    <label>Choose barber*:
+      <select name="service_provider" required>
+        {% for sp in service_providers %}
+        <option value="{{ sp.spID }}"
+          {% if selected_sp_id == sp.spID|string %} selected {% endif %}>
+          {{ sp.spName }}
+        </option>
+        {% endfor %}
+      </select>
+    </label>
+
+    <!-- Service -->
+    <label>Service*:
+      <select name="service" required>
+        <option value="">-- Select a service --</option>
+        {% for svc in services %}
+          <option value="{{ svc.sID }}">
+            {{ svc.type }} — {{ svc.duration }} min • ${{ "%.2f"|format(svc.price) }}
+          </option>
+        {% endfor %}
       </select>
     </label>
 
     <!-- Date -->
-    <label>Date:
-      <input type="date" id="date" required />
+    <label>Date*:
+      <input type="date" name="date" required />
     </label>
 
     <!-- Time -->
-    <label>Time:
-      <input type="time" id="time" required />
+    <label>Time*:
+      <input type="time" name="time" required />
+    </label>
+
+    <!-- Payment -->
+    <label>Payment method:
+      <select name="payment_method">
+        <option value="">(Not specified)</option>
+        <option value="cash">Cash</option>
+        <option value="zelle">Zelle</option>
+        <option value="card">Card</option>
+      </select>
     </label>
 
     <button type="submit" class="btn btn-primary btn-full">
@@ -39,3 +73,4 @@
 </section>
 
 {% endblock %}
+

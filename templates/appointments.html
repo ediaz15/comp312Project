@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% set active = 'appointments' %}
+
+{% block title %}Appointments — Haircut Booker{% endblock %}
+
+{% block content %}
+  <section class="section appointments-section">
+    <h1>Upcoming Appointments</h1>
+
+    {% if appointments and appointments|length > 0 %}
+      <table class="appointments-table">
+        <thead>
+          <tr>
+            <th>Appointment ID</th>
+            <th>Client</th>
+	    <th>Phone</th>
+            <th>Barber</th>
+            <th>Service</th>
+            <th>Date</th>
+            <th>Time Slot</th>
+            <th>Payment</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for a in appointments %}
+            <tr>
+              <td>{{ a.aID }}</td>
+              <td>{{ a.client_name }}</td>
+              <td>{{ a.client_phone }}</td>
+              <td>{{ a.barber_name }}</td>
+              <td>{{ a.service_name }}</td>
+              <td>{{ a.date }}</td>
+              <td>{{ a.timeSlot }}</td>
+              <td>{{ a.paymentMethod or '—' }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>No appointments yet. Book something first on the
+        <a href="{{ url_for('booking') }}">booking page</a>.
+      </p>
+    {% endif %}
+  </section>
+{% endblock %}
+

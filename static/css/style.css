@@ -325,3 +325,96 @@ footer {
     flex-wrap: wrap;
   }
 }
+
+/* ----- Appointments page styling ----- */
+
+/* ----- Appointments page styling ----- */
+
+.appointments-section {
+  max-width: 1100px;
+  margin: 4rem auto;
+}
+
+.appointments-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.appointments-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.appointments-table thead tr {
+  border-bottom: 2px solid #ddd;
+}
+
+.appointments-table th,
+.appointments-table td {
+  padding: 0.75rem 1rem;
+}
+
+/* Default: left-align text columns */
+.appointments-table th {
+  text-align: left;
+}
+
+/* Center the “compact” columns:
+   1: Appointment ID
+   3: Phone
+   6: Date
+   7: Time Slot
+   8: Payment
+*/
+.appointments-table td:nth-child(1),
+.appointments-table td:nth-child(3),
+.appointments-table td:nth-child(6),
+.appointments-table td:nth-child(7),
+.appointments-table td:nth-child(8),
+.appointments-table th:nth-child(1),
+.appointments-table th:nth-child(3),
+.appointments-table th:nth-child(6),
+.appointments-table th:nth-child(7),
+.appointments-table th:nth-child(8) {
+  text-align: center;
+}
+
+.appointments-table tbody tr {
+  border-bottom: 1px solid #eee;
+}
+
+.appointments-table tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+/*--------Success Bar------*/
+.flash-container {
+  max-width: 900px;
+  margin: 1.5rem auto;
+}
+
+.flash {
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+/* Success message (green)
+   Category is "success", so class becomes flash-success */
+.flash-success {
+  background-color: #e4fbe4;
+  border: 1px solid #9ee2a2;
+  color: #2b6b2b;
+}
+
+/* Error message (red) if needed */
+.flash-error {
+  background-color: #ffe6e6;
+  border: 1px solid #ff9b9b;
+  color: #7a1f1f;
+}
+
