@@ -1,5 +1,5 @@
 # COMP 312 – Assignment Documentation (OPEN ME)
-
+Link to repository: https://github.com/ediaz15/comp312Project.git
 This folder contains everything need and required for the COMP 312 project.
 
 ## Project Overview
